@@ -84,26 +84,8 @@ body {
     height: min-content;
     content: "";
 }
-#modalMusica .modal-content {
-    background: transparent;
-    border: none;
-    font-family: var(--fuente-1);
-    font-weight: var(--weight-font-regular);
-    border-radius: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-}
-.modal .modal-content {
-    text-align: center;
-    border: none;
-    padding: 10px;
-    color: #fff;
-    -webkit-border-radius: 40px;
-    -moz-border-radius: 40px;
-    border-radius: 40px;
-    -webkit-box-shadow: 0px 0px 15px 0px #444;
-    box-shadow: 0px 0px 15px 0px #444;
-}
+
+
 .modal-content {
     position: relative;
     display: -ms-flexbox;
@@ -247,7 +229,7 @@ a {
 
 section.portada {
     width: 100%;
-    padding-bottom: 0;
+    padding-bottom: 100px;
     background-size: cover;
     color: #fff;
     position: relative;
@@ -308,6 +290,10 @@ section.portada .portada-container {
 .justify-content-center {
     -ms-flex-pack: center!important;
     justify-content: center !important;
+}
+.flex-column {
+    -ms-flex-direction: column!important;
+    flex-direction: column !important;
 }
 .d-flex {
     display: -ms-flexbox!important;
@@ -564,11 +550,6 @@ section.cuenta-regresiva .reloj-col.no-border {
     display: block;
     clear: both;
     content: "";
-}
-
-section.cuenta-regresiva .box-aros .box-circulo .corazon-falta {
-    width: 18%;
-    margin-top: 5px;
 }
 
 section.ceremonia-fiesta:after {
@@ -832,6 +813,19 @@ svg {
     .container, .container-sm {
         max-width: 1000px;
     }
+    .modal-dialog-centered::before {
+        height: calc(100vh - 3.5rem);
+        height: -webkit-min-content;
+        height: -moz-min-content;
+        height: min-content;
+    }
+        .modal-dialog-centered {
+        min-height: calc(100% - 3.5rem);
+    }
+        .modal-dialog {
+        max-width: 500px;
+        margin: 1.75rem auto;
+    }
 }
 
 
@@ -892,6 +886,30 @@ svg {
   width: 20px;
 }
 
+.custom-control-label::after {
+    position: absolute;
+    top: .25rem;
+    left: -1.5rem;
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    content: "";
+    background: no-repeat 50% / 50% 50%;
+}
+
+.custom-control-label::before {
+    position: absolute;
+    top: .25rem;
+    left: -1.5rem;
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    pointer-events: none;
+    content: "";
+    background-color: #fff;
+    border: #adb5bd solid 1px;
+}
+
 .custom-control-input:checked~.custom-control-label::before {
   color: var(--color-1);
   border-color: var(--color-1);
@@ -902,7 +920,13 @@ svg {
 .custom-control-input:focus~.custom-control-label::before {
   box-shadow: none !important;
 }
+.custom-radio .custom-control-label::before {
+    border-radius: 50%;
+}
 
+.custom-control-label::before, .custom-file-label, .custom-select {
+    transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
 .addeventatc:hover {
   background: none;
 }
@@ -1102,7 +1126,7 @@ span#error-form {
 /* Portada */
 section.portada {
   width: 100%;
-  padding-bottom: 0;
+  padding-bottom: 50px;
   background-size: cover;
   color: #fff;
   position: relative;
@@ -1122,7 +1146,7 @@ section.portada .portada-container {
 
 section.portada .portada-container .portada-container-2 {
   width: 100%;
-  max-width: 610px;
+  max-width: 640px;
   background: var(--color-4);
   padding-bottom: 60px;
   position: relative;
@@ -1222,7 +1246,7 @@ section.portada .adorno-3 {
 
 section.portada .box-nombres-fecha-portada {
   background: url('ampersand.svg') center center no-repeat;
-  background-size: 180px;
+  background-size: 160px;
   background-position-y: 105px;
   padding-bottom: 20px;
 }
@@ -1232,11 +1256,11 @@ section.portada .content-portada span.fecha {
   white-space: nowrap;
   width: auto;
   font-family: var(--fuente-1);
-  font-size: 29px;
+  font-size: 35px;
   line-height: 25px;
   color: var(--color-3);
   padding: 5px 30px 10px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   margin-top: 40px;
   border: 2px solid;
   border-image-slice: 1;
@@ -1393,8 +1417,9 @@ section.cuenta-regresiva .box-aros .box-circulo span.falta {
 }
 
 section.cuenta-regresiva .box-aros .box-circulo .corazon-falta {
-  width: 18%;
+  width: 20%;
   margin-top: 5px;
+  animation: latido 1.5s infinite;
 }
 
 section.cuenta-regresiva .reloj {
@@ -1582,7 +1607,7 @@ section.ceremonia-fiesta .info-col .info-box p {
 section.ceremonia-fiesta .info-col .info-box a.boton {
   margin-top: 5px;
   display: inline-block;
-  width: 50%;
+  width: 30%;
 }
 
 section.ceremonia-fiesta:after {
@@ -2568,8 +2593,7 @@ footer img.firma-footer {
   border: double 2px transparent;
   background-image: linear-gradient(var(--color-1), var(--color-1)), radial-gradient(circle at bottom left, var(--color-6), var(--color-7), var(--color-8));
   background-origin: border-box;
-  background-clip: content-box,
-    border-box;
+  background-clip: content-box, border-box;
   -webkit-border-radius: 40px;
   -moz-border-radius: 40px;
   border-radius: 40px;
@@ -2644,6 +2668,20 @@ footer img.firma-footer {
   padding: 0;
 }
 
+.modal-footer {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    padding: .75rem;
+    border-top: 1px solid #dee2e6;
+    border-bottom-right-radius: calc(.3rem - 1px);
+    border-bottom-left-radius: calc(.3rem - 1px);
+}
 
 .modal .modal-content-2 .boton {
   outline: none;
@@ -2678,6 +2716,97 @@ footer img.firma-footer {
   top: -170px;
 }
 
+[data-aos][data-aos][data-aos-delay="300"].aos-animate, body[data-aos-delay="300"] [data-aos].aos-animate {
+    transition-delay: .3s;
+}
+
+[data-aos][data-aos][data-aos-delay="300"], body[data-aos-delay="300"] [data-aos] {
+    transition-delay: 0;
+}
+
+.align-items-start {
+    -ms-flex-align: start!important;
+    align-items: flex-start !important;
+}
+
+.h5, h5 {
+    font-size: 1.25rem;
+}
+
+justify-content-around {
+    -ms-flex-pack: distribute!important;
+    justify-content: space-around !important;
+}
+.d-flex {
+    display: -ms-flexbox!important;
+    display: flex !important;
+}
+.custom-control-inline {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    margin-right: 1rem;
+}
+.custom-control {
+    position: relative;
+    z-index: 1;
+    display: block;
+    min-height: 1.5rem;
+    padding-left: 1.5rem;
+}
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-check {
+    position: relative;
+    display: block;
+    padding-left: 1.25rem;
+}
+
+#modalAsistencia input, #modalAsistencia textarea {
+    text-align: center;
+    background: none;
+    resize: none;
+    outline: none;
+    padding-bottom: 5px;
+    font-family: var(--fuente-3);
+}
+.modal-dialog form input, .modal-dialog form textarea {
+    border: none;
+    border-bottom: 1px solid var(--color-4);
+}
+input[type=checkbox], input[type=radio] {
+    box-sizing: border-box;
+    padding: 0;
+}
+.custom-control-input {
+    position: absolute;
+    left: 0;
+    z-index: -1;
+    width: 1rem;
+    height: 1.25rem;
+    opacity: 0;
+}
+.form-check-input {
+    position: absolute;
+    margin-top: .3rem;
+    margin-left: -1.25rem;
+}
+.custom-control-label {
+    position: relative;
+    margin-bottom: 0;
+    vertical-align: top;
+}
+.form-check-label {
+    margin-bottom: 0;
+}
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+}
+textarea.form-control {
+    height: auto;
+}
 
 /* Modal Confirmar asistencia*/
 
@@ -2701,6 +2830,7 @@ footer img.firma-footer {
   float: left;
   margin-bottom: 10px;
   margin-top: 10px;
+  margin-right: auto;
   font-size: 18px;
 }
 
@@ -2713,6 +2843,21 @@ footer img.firma-footer {
   font-size: 15px;
 }
 
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
 
 
 /* Modal Sugerir cancion */
@@ -2857,8 +3002,76 @@ footer img.firma-footer {
   background-color: var(--color-2);
 }
 
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    cursor: pointer;
+}
+
+button.close {
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+}
+
+.close {
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+}
+
+[type=button], [type=reset], [type=submit], button {
+    -webkit-appearance: button;
+}
+button, select {
+    text-transform: none;
+}
+button, input {
+    overflow: visible;
+}
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+textarea {
+    overflow: auto;
+    resize: vertical;
+}
+
+button {
+    border-radius: 0;
+}
+.modal-header {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    border-bottom: 1px solid #dee2e6;
+    border-top-left-radius: calc(.3rem - 1px);
+    border-top-right-radius: calc(.3rem - 1px);
+}
+ .modal-title {
+    margin-bottom: 0;
+    line-height: 1.5;
+  }
+
+  .modal-footer>* {
+    margin: .25rem;
+}
+
 /* Mobile */
 @media only screen and (max-width: 767px) {
+
+  section.portada {
+    padding-bottom: 120px;
+  }
 
   #modalMusica .modal-content p {
     font-size: 60px;
@@ -3268,7 +3481,7 @@ footer img.firma-footer {
     font-family: var(--fuente-1);
     font-weight: var(--grosor-fuente-regular);
   }
-
+ 
   .flags-laguages {
     padding: 5px;
   }
@@ -3365,6 +3578,19 @@ footer img.firma-footer {
   padding: 20px 0;
   margin: 0;
   gap: 8px;
+}
+
+.anim-corazon {
+  width: 60px;
+  height: 60px;
+  margin: 15px auto;
+  animation: latido 1.5s infinite;
+}
+
+@keyframes latido {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
 }
 
 /* Estilos adicionales recomendados para el carrusel */

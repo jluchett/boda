@@ -143,15 +143,102 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // 6. Confirmar asistencia
+  // 6. Confirmar asistencia - Modal y envío de formulario
   document.querySelectorAll('.confirmar-asistencia').forEach(boton => {
     boton.addEventListener('click', function(e) {
       e.preventDefault();
       const evento = this.getAttribute('data-evento');
-      // Aquí puedes implementar un modal de confirmación o enviar a un formulario
-      alert(`Has confirmado asistencia a la ${evento}. ¡Gracias!`);
+      const modal = document.getElementById('modalAsistencia');
+      
+      // Configurar el modal según el evento
+      const titulo = modal.querySelector('.modal-title');
+      titulo.textContent = `¿Asistiras a la ceremonia?`;
+      
+      // Mostrar el modal
+      modal.style.display = 'block';
+      document.body.classList.add('modal-open');
+      
+      // Configurar el icono según el evento
+      const icono = modal.querySelector('.white-circle-icon img');
+      if (evento === 'Ceremonia') {
+        icono.src = 'img_circuloCeremonia.svg';
+      } 
     });
   });
+
+  // Cerrar modal con el botón X
+  document.querySelector('#modalAsistencia .close').addEventListener('click', function() {
+    const modal = document.getElementById('modalAsistencia');
+    modal.style.display = 'none';
+    document.body.classList.remove('modal-open');
+  });
+
+  // Enviar formulario de confirmación
+  document.getElementById('sendAsistencia').addEventListener('click', function() {
+    const form = document.getElementById('formAsistencia');
+    const nombre = document.getElementById('nombreAsistente').value.trim();
+    const asistencia = document.querySelector('input[name="asistencia"]:checked').value;
+    const comentarios = document.getElementById('comentariosAsistente').value.trim();
+    
+    if (!nombre) {
+      alert('Por favor ingresa tu nombre');
+      return;
+    }
+    
+    // Aquí normalmente enviarías los datos a un servidor
+    // Simulamos el envío con un setTimeout
+    const modalBody = document.querySelector('#modalAsistencia .modal-body');
+    const formContent = modalBody.querySelector('.formulario-content');
+    const msjContent = modalBody.querySelector('.msj-content');
+    
+    formContent.style.display = 'none';
+    msjContent.style.display = 'flex';
+    
+    if (asistencia === 'Si') {
+      msjContent.innerHTML = `
+        <p class="text-center">¡Gracias por confirmar, ${nombre}!</p>
+        <p class="text-center">Nos alegra mucho que nos acompañes en este día tan especial.</p>
+        <div class="anim-corazon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 32" width="38" height="32" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px);"><defs><clipPath id="__lottie_element_36"><rect width="38" height="32" x="0" y="0"></rect></clipPath></defs><g clip-path="url(#__lottie_element_36)"><g transform="matrix(0.7499992251396179,0,0,0.7499992251396179,4.768014907836914,3.9505128860473633)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,18.97599983215332,16.06599998474121)"><path fill="rgb(180,143,115)" fill-opacity="1" d=" M-1.1369999647140503,15.593999862670898 C-0.7720000147819519,15.741999626159668 -0.38600000739097595,15.815999984741211 0.0010000000474974513,15.815999984741211 C0.3869999945163727,15.815999984741211 0.7730000019073486,15.741999626159668 1.1369999647140503,15.593999862670898 C1.8550000190734863,15.300999641418457 18.725000381469727,8.284000396728516 18.725000381469727,-4.073999881744385 C18.725000381469727,-10.550000190734863 13.385000228881836,-15.815999984741211 6.820000171661377,-15.815999984741211 C4.349999904632568,-15.815999984741211 1.9789999723434448,-15.067000389099121 0.0010000000474974513,-13.70199966430664 C-1.9780000448226929,-15.067000389099121 -4.348999977111816,-15.815999984741211 -6.817999839782715,-15.815999984741211 C-13.383999824523926,-15.815999984741211 -18.725000381469727,-10.550000190734863 -18.725000381469727,-4.073999881744385 C-18.725000381469727,8.284000396728516 -1.8550000190734863,15.300999641418457 -1.1369999647140503,15.593999862670898z"></path></g></g></g></svg></div>
+      `;
+    } else {
+      msjContent.innerHTML = `
+        <p class="text-center">Lamentamos que no puedas acompañarnos, ${nombre}.</p>
+        <p class="text-center">Gracias por avisarnos.</p>
+      `;
+    }
+    
+    // Cerrar el modal después de 3 segundos
+    setTimeout(() => {
+      const modal = document.getElementById('modalAsistencia');
+      modal.style.display = 'none';
+      document.body.classList.remove('modal-open');
+      
+      // Restaurar el formulario para futuras confirmaciones
+      formContent.style.display = 'block';
+      msjContent.style.display = 'none';
+      msjContent.innerHTML = '';
+      form.reset();
+    }, 5000);
+    
+    // En un caso real, aquí enviarías los datos al servidor:
+    // const datos = {
+    //   nombre,
+    //   asistencia,
+    //   comentarios,
+    //   evento: document.querySelector('#modalAsistencia .modal-title').textContent
+    // };
+    // fetch('/confirmar-asistencia', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify(datos)
+    // })
+    // .then(response => response.json())
+    // .then(data => {
+    //   // Manejar respuesta del servidor
+    // })
+    // .catch(error => console.error('Error:', error));
+  });
+  
 
   // 7. Cómo llegar
   document.querySelectorAll('.modal-como-llegar').forEach(boton => {
@@ -159,26 +246,25 @@ document.addEventListener('DOMContentLoaded', function() {
       e.preventDefault();
       const evento = this.getAttribute('data-evento');
       // Aquí puedes implementar un modal con mapa o abrir Google Maps
-      window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('Av. Pergamino 203, Bogotá')}`);
+      window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('Cra. 38b, 65B-38, Barranquilla, Atlántico, CO')}`);
     });
   });
 
-  // 8. Agendar evento
-  document.querySelectorAll('.addeventatc').forEach(boton => {
+  // 8. Agendar evento en Google Calendar
+  document.querySelectorAll('#addeventatc').forEach(boton => {
     boton.addEventListener('click', function(e) {
+      if (this.id !== 'addeventatc' && !this.classList.contains('confirmar-asistencia')) return;
       e.preventDefault();
-      // Configuración para AddEvent
-      const addEventConfig = {
-        title: "Invitación de José Luz",
-        start: "2025-05-15T17:00:00",
-        end: "2025-05-15T23:00:00",
-        location: "Parroquia Nuestra Señora de Lujan, Av. Pergamino 203, Bogotá",
-        description: "Celebración especial de José Luz. ¡Esperamos verte allí!",
-        timezone: "America/Bogota"
-      };
       
-      // Aquí iría la implementación real de AddEvent
-      alert("Se abrirá el calendario para agendar el evento");
+      const fechaEvento = '20250815T180000'; // Formato: YYYYMMDDTHHMMSS
+      const fechaFinEvento = '20250815T190000';
+      const titulo = encodeURIComponent('Boda de Mónica y Jorge');
+      const detalles = encodeURIComponent('Ceremonia de matrimonio\nParroquia San Juan María Vianney\nCra. 38b, 65B-38, Barranquilla, Atlántico');
+      const ubicacion = encodeURIComponent('Parroquia San Juan María Vianney, Cra. 38b, 65B-38, Barranquilla, Atlántico');
+      
+      const urlGoogleCalendar = `https://www.google.com/calendar/render?action=TEMPLATE&dates=${fechaEvento}/${fechaFinEvento}&text=${titulo}&details=${detalles}&location=${ubicacion}`;
+      
+      window.open(urlGoogleCalendar, '_blank');
     });
   });
 
@@ -196,11 +282,59 @@ document.addEventListener('DOMContentLoaded', function() {
         parallaxImg.style.transform = 'none';
     }
   }
+ 
+  // 10. Funcionalidad para los enlaces del footer
+  document.querySelectorAll('.footer a').forEach(enlace => {
+    enlace.addEventListener('click', function(e) {
+      e.preventDefault();
+      const accion = this.getAttribute('data-evento');
+      
+      // Cerrar cualquier modal abierto primero
+      document.querySelectorAll('.modal').forEach(modal => {
+        modal.style.display = 'none';
+      });
+      document.body.classList.remove('modal-open');
+      
+      switch(accion) {
+        case 'confirmar-asistencia':
+          // Abrir modal de confirmación de asistencia
+          const modal = document.getElementById('modalAsistencia');
+          const titulo = modal.querySelector('.modal-title');
+          titulo.textContent = 'Confirmar asistencia a la ceremonia';
+          
+          // Configurar el icono
+          const icono = modal.querySelector('.white-circle-icon img');
+          icono.src = 'img_circuloCeremonia.svg';
+          
+          // Mostrar el modal
+          modal.style.display = 'block';
+          document.body.classList.add('modal-open');
+          break;
+          
+        case 'agendar-ceremonia':
+          // Agendar en Google Calendar
+          const fechaEvento = '20250815T180000';
+          const fechaFinEvento = '20250815T190000';
+          const tituloEvento = encodeURIComponent('Boda de Mónica y Jorge - Ceremonia');
+          const detalles = encodeURIComponent('Ceremonia de matrimonio\nParroquia San Juan María Vianney\nCra. 38b, 65B-38, Barranquilla, Atlántico');
+          const ubicacion = encodeURIComponent('Parroquia San Juan María Vianney, Cra. 38b, 65B-38, Barranquilla, Atlántico');
+          
+          const urlGoogleCalendar = `https://www.google.com/calendar/render?action=TEMPLATE&dates=${fechaEvento}/${fechaFinEvento}&text=${tituloEvento}&details=${detalles}&location=${ubicacion}`;
+          window.open(urlGoogleCalendar, '_blank');
+          break;
+          
+        case 'como-llegar':
+          // Abrir mapa con la ubicación
+          window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('Parroquia San Juan María Vianney, Cra. 38b, 65B-38, Barranquilla, Atlántico, CO')}`, '_blank');
+          break;
+      }
+    });
+  });
 
   setupParallax();
   window.addEventListener('resize', setupParallax);
 
-    // Configuración del carrusel
+  // Configuración del carrusel
   const carrusel = document.querySelector('.carrusel');
   const slides = document.querySelectorAll('.slick-slide:not(.slick-cloned)');
   const dots = document.querySelectorAll('.slick-dots li');
