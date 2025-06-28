@@ -578,8 +578,9 @@ section.ceremonia-fiesta:after {
     background-size: contain !important;
     background-repeat: no-repeat;
     background-position: bottom center;
-    height: 100%;
+    height: 50%;
     width: 100%;
+    top: auto;
     bottom: 0;
 }
 
@@ -805,6 +806,11 @@ svg {
     .container, .container-lg, .container-md, .container-sm, .container-xl {
         max-width: 1140px;
     }
+    section.footer .col-md-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
 }
 @media (min-width: 992px) {
     .container, .container-lg, .container-md, .container-sm {
@@ -824,7 +830,7 @@ svg {
 
 @media (min-width: 576px) {
     .container, .container-sm {
-        max-width: 700px;
+        max-width: 1000px;
     }
 }
 
@@ -1866,7 +1872,7 @@ section.galeria .slick-center .polaroid {
 }
 
 .slick-dots {
-  bottom: -30px;
+  bottom: -50px;
 }
 
 
@@ -2090,6 +2096,7 @@ section.instagram:before {
 section.instagram .title {
   color: #fff;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: #fff;
 }
 
@@ -2271,7 +2278,7 @@ section.footer {
 
 section.footer .col-nombres-footer {
   background: url('ampersand.svg') center center no-repeat;
-  background-size: 180px;
+  background-size: 120px;
   background-position-y: 20px;
 }
 
@@ -2282,7 +2289,7 @@ section.footer h4 {
   font-family: var(--fuente-1);
   font-weight: var(--grosor-fuente-regular);
   color: var(--color-1);
-  font-size: 85px;
+  font-size: 70px;
   text-transform: uppercase;
 }
 
