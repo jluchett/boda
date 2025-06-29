@@ -220,7 +220,7 @@ a {
     width: 900px;
 }
 .parallax-slider {
-    transform: translate3d(-74px, 0px, 0px);
+    transform: translate3d(0px, 0px, 0px);
     position: absolute;
     height: 757px;
     width: 989px;
@@ -3109,7 +3109,7 @@ button {
   }
 
   .parallax-slider {
-    transform: translate3d(-24px, 0px, 0px);
+    transform: translate3d(0px, 0px, 0px);
     position: absolute;
     height: 380px;
     width: 500px;
