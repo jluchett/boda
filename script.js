@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // 3. Cuenta regresiva
   function actualizarCuentaRegresiva() {
-    const fechaEvento = new Date('2025-08-15T17:00:00'); // Ajusta la fecha de tu evento
+    const fechaEvento = new Date('2025-08-15T18:00:00'); // Ajusta la fecha de tu evento
     const ahora = new Date();
     const diferencia = fechaEvento - ahora;
 
