@@ -64,8 +64,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const ahora = new Date();
     const diferencia = fechaEvento - ahora;
 
+    const relojElement = document.getElementById('reloj');
+
     if (diferencia <= 0) {
-      document.getElementById('reloj').innerHTML = '<div class="reloj-col"><span class="number">¡Hoy es el día!</span></div>';
+      const diasPasados = Math.floor(Math.abs(diferencia) / (1000 * 60 * 60 * 24));
+      if (diasPasados === 0) {
+      // Hoy es el día del evento
+      relojElement.innerHTML = '<div class="reloj-col"><span class="day">¡Hoy es el día!</span></div>';
+      } else if (diasPasados === 1) {
+      // El evento fue ayer
+      relojElement.innerHTML = '<div class="reloj-col"><span class="day">El evento fue ayer</span></div>';
+      } else {
+      // El evento ya pasó hace varios días
+      relojElement.innerHTML = `<div class="reloj-col"><span class="day">El evento fue hace ${diasPasados} días</span></div>`;
+      }
       return;
     }
 
