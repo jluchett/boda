@@ -1446,6 +1446,15 @@ section.cuenta-regresiva .reloj-col span.number {
   font-size: 40px;
 }
 
+section.cuenta-regresiva .day {
+    display: block;
+    width: 100%;
+    color: var(--color-2);
+    font-family: var(--fuente-2);
+    font-weight: var(--grosor-fuente-semibold);
+    font-size: 30px;
+}
+
 section.cuenta-regresiva .reloj-col span.time {
   display: inline-block;
   width: 100%;
