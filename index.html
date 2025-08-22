@@ -253,6 +253,47 @@
       </div>
     </section>
 
+    <!-- Nueva Galería de Fotos de la Boda -->
+    <section class="nueva-galeria">
+      <div class="container">
+        <div class="row text-center d-flex justify-content-center align-items-center">
+          <div class="content-galeria">
+            <h2 class="title">Nuestra Boda</h2>
+            <p class="subtitle">Momentos especiales de nuestro día</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="galeria-container">
+      <div class="galeria-grid">
+        <div class="galeria-item">
+          <img src="fotos-boda/boda1.jpg" alt="Foto de boda 1" data-full="fotos-boda/boda1.jpg">
+        </div>
+        <div class="galeria-item">
+          <img src="fotos-boda/boda2.jpg" alt="Foto de boda 2" data-full="fotos-boda/boda2.jpg">
+        </div>
+        <div class="galeria-item">
+          <img src="fotos-boda/boda3.jpg" alt="Foto de boda 3" data-full="fotos-boda/boda3.jpg">
+        </div>
+        <div class="galeria-item">
+          <img src="fotos-boda/boda4.jpg" alt="Foto de boda 4" data-full="fotos-boda/boda4.jpg">
+        </div>
+        <div class="galeria-item">
+          <img src="fotos-boda/boda5.jpg" alt="Foto de boda 5" data-full="fotos-boda/boda5.jpg">
+        </div>
+        <div class="galeria-item">
+          <img src="fotos-boda/boda6.jpg" alt="Foto de boda 6" data-full="fotos-boda/boda6.jpg">
+        </div>
+        <div class="galeria-item">
+          <img src="fotos-boda/boda7.jpg" alt="Foto de boda 7" data-full="fotos-boda/boda7.jpg">
+        </div>
+        <div class="galeria-item">
+          <img src="fotos-boda/boda8.jpg" alt="Foto de boda 8" data-full="fotos-boda/boda8.jpg">
+        </div>
+      </div>
+    </section>
+
+
     <!-- Footer -->
     <section class="footer">
       <div class="container">
@@ -295,6 +336,24 @@
         </div>
       </div>
     </footer>
+
+    
+    <!-- Modal Visor de Imágenes -->
+    <div id="modalGaleria" class="modal-galeria">
+      <div class="modal-contenido">
+        <span class="cerrar-modal">&times;</span>
+        <div class="modal-cuerpo">
+          <img id="imagen-modal" src="" alt="">
+          <div class="controles-galeria">
+            <button id="anterior" class="control-btn">&#10094;</button>
+            <button id="siguiente" class="control-btn">&#10095;</button>
+          </div>
+        </div>
+        <div class="modal-pie">
+          <p id="titulo-imagen"></p>
+        </div>
+      </div>
+    </div>
 
     <!-- Modal Confirmar Asistencia -->
     <div id="modalAsistencia" class="modal fade" tabindex="-1">

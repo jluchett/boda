@@ -70,13 +70,13 @@ document.addEventListener('DOMContentLoaded', function() {
       const diasPasados = Math.floor(Math.abs(diferencia) / (1000 * 60 * 60 * 24));
       if (diasPasados === 0) {
       // Hoy es el día del evento
-      relojElement.innerHTML = '<div class="d-flex justify-content-center align-items-center"><div class="corazon-falta"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 32" width="38" height="32" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px);"><defs><clipPath id="__lottie_element_36"><rect width="38" height="32" x="0" y="0"></rect></clipPath></defs><g clip-path="url(#__lottie_element_36)"><g transform="matrix(0.7499992251396179,0,0,0.7499992251396179,4.768014907836914,3.9505128860473633)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,18.97599983215332,16.06599998474121)"><path fill="rgb(180,143,115)" fill-opacity="1" d=" M-1.1369999647140503,15.593999862670898 C-0.7720000147819519,15.741999626159668 -0.38600000739097595,15.815999984741211 0.0010000000474974513,15.815999984741211 C0.3869999945163727,15.815999984741211 0.7730000019073486,15.741999626159668 1.1369999647140503,15.593999862670898 C1.8550000190734863,15.300999641418457 18.725000381469727,8.284000396728516 18.725000381469727,-4.073999881744385 C18.725000381469727,-10.550000190734863 13.385000228881836,-15.815999984741211 6.820000171661377,-15.815999984741211 C4.349999904632568,-15.815999984741211 1.9789999723434448,-15.067000389099121 0.0010000000474974513,-13.70199966430664 C-1.9780000448226929,-15.067000389099121 -4.348999977111816,-15.815999984741211 -6.817999839782715,-15.815999984741211 C-13.383999824523926,-15.815999984741211 -18.725000381469727,-10.550000190734863 -18.725000381469727,-4.073999881744385 C-18.725000381469727,8.284000396728516 -1.8550000190734863,15.300999641418457 -1.1369999647140503,15.593999862670898z"></path></g></g></g></svg></div></div><span class="falta"><span class="day">¡Hoy es el día!</span></span>';
+      relojElement.innerHTML = '<div class="d-flex justify-content-center align-items-center"><div class="corazon-falta hoy"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 32" width="38" height="32" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px);"><defs><clipPath id="__lottie_element_36"><rect width="38" height="32" x="0" y="0"></rect></clipPath></defs><g clip-path="url(#__lottie_element_36)"><g transform="matrix(0.7499992251396179,0,0,0.7499992251396179,4.768014907836914,3.9505128860473633)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,18.97599983215332,16.06599998474121)"><path fill="rgb(180,143,115)" fill-opacity="1" d=" M-1.1369999647140503,15.593999862670898 C-0.7720000147819519,15.741999626159668 -0.38600000739097595,15.815999984741211 0.0010000000474974513,15.815999984741211 C0.3869999945163727,15.815999984741211 0.7730000019073486,15.741999626159668 1.1369999647140503,15.593999862670898 C1.8550000190734863,15.300999641418457 18.725000381469727,8.284000396728516 18.725000381469727,-4.073999881744385 C18.725000381469727,-10.550000190734863 13.385000228881836,-15.815999984741211 6.820000171661377,-15.815999984741211 C4.349999904632568,-15.815999984741211 1.9789999723434448,-15.067000389099121 0.0010000000474974513,-13.70199966430664 C-1.9780000448226929,-15.067000389099121 -4.348999977111816,-15.815999984741211 -6.817999839782715,-15.815999984741211 C-13.383999824523926,-15.815999984741211 -18.725000381469727,-10.550000190734863 -18.725000381469727,-4.073999881744385 C-18.725000381469727,8.284000396728516 -1.8550000190734863,15.300999641418457 -1.1369999647140503,15.593999862670898z"></path></g></g></g></svg></div></div><span class="falta"><span class="day">¡Hoy es el día!</span></span>';
       } else if (diasPasados === 1) {
       // El evento fue ayer
-      relojElement.innerHTML = '<div class="d-flex justify-content-center align-items-center"><div class="corazon-falta"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 32" width="38" height="32" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px);"><defs><clipPath id="__lottie_element_36"><rect width="38" height="32" x="0" y="0"></rect></clipPath></defs><g clip-path="url(#__lottie_element_36)"><g transform="matrix(0.7499992251396179,0,0,0.7499992251396179,4.768014907836914,3.9505128860473633)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,18.97599983215332,16.06599998474121)"><path fill="rgb(180,143,115)" fill-opacity="1" d=" M-1.1369999647140503,15.593999862670898 C-0.7720000147819519,15.741999626159668 -0.38600000739097595,15.815999984741211 0.0010000000474974513,15.815999984741211 C0.3869999945163727,15.815999984741211 0.7730000019073486,15.741999626159668 1.1369999647140503,15.593999862670898 C1.8550000190734863,15.300999641418457 18.725000381469727,8.284000396728516 18.725000381469727,-4.073999881744385 C18.725000381469727,-10.550000190734863 13.385000228881836,-15.815999984741211 6.820000171661377,-15.815999984741211 C4.349999904632568,-15.815999984741211 1.9789999723434448,-15.067000389099121 0.0010000000474974513,-13.70199966430664 C-1.9780000448226929,-15.067000389099121 -4.348999977111816,-15.815999984741211 -6.817999839782715,-15.815999984741211 C-13.383999824523926,-15.815999984741211 -18.725000381469727,-10.550000190734863 -18.725000381469727,-4.073999881744385 C-18.725000381469727,8.284000396728516 -1.8550000190734863,15.300999641418457 -1.1369999647140503,15.593999862670898z"></path></g></g></g></svg></div></div><span class="falta"><span class="day">El evento fue ayer</span></span>';
+      relojElement.innerHTML = '<div class="d-flex justify-content-center align-items-center"><div class="corazon-falta hoy"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 32" width="38" height="32" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px);"><defs><clipPath id="__lottie_element_36"><rect width="38" height="32" x="0" y="0"></rect></clipPath></defs><g clip-path="url(#__lottie_element_36)"><g transform="matrix(0.7499992251396179,0,0,0.7499992251396179,4.768014907836914,3.9505128860473633)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,18.97599983215332,16.06599998474121)"><path fill="rgb(180,143,115)" fill-opacity="1" d=" M-1.1369999647140503,15.593999862670898 C-0.7720000147819519,15.741999626159668 -0.38600000739097595,15.815999984741211 0.0010000000474974513,15.815999984741211 C0.3869999945163727,15.815999984741211 0.7730000019073486,15.741999626159668 1.1369999647140503,15.593999862670898 C1.8550000190734863,15.300999641418457 18.725000381469727,8.284000396728516 18.725000381469727,-4.073999881744385 C18.725000381469727,-10.550000190734863 13.385000228881836,-15.815999984741211 6.820000171661377,-15.815999984741211 C4.349999904632568,-15.815999984741211 1.9789999723434448,-15.067000389099121 0.0010000000474974513,-13.70199966430664 C-1.9780000448226929,-15.067000389099121 -4.348999977111816,-15.815999984741211 -6.817999839782715,-15.815999984741211 C-13.383999824523926,-15.815999984741211 -18.725000381469727,-10.550000190734863 -18.725000381469727,-4.073999881744385 C-18.725000381469727,8.284000396728516 -1.8550000190734863,15.300999641418457 -1.1369999647140503,15.593999862670898z"></path></g></g></g></svg></div></div><span class="falta"><span class="day">El evento fue ayer</span></span>';
       } else {
       // El evento ya pasó hace varios días
-      relojElement.innerHTML = `<div class="d-flex justify-content-center align-items-center"><div class="corazon-falta"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 32" width="38" height="32" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px);"><defs><clipPath id="__lottie_element_36"><rect width="38" height="32" x="0" y="0"></rect></clipPath></defs><g clip-path="url(#__lottie_element_36)"><g transform="matrix(0.7499992251396179,0,0,0.7499992251396179,4.768014907836914,3.9505128860473633)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,18.97599983215332,16.06599998474121)"><path fill="rgb(180,143,115)" fill-opacity="1" d=" M-1.1369999647140503,15.593999862670898 C-0.7720000147819519,15.741999626159668 -0.38600000739097595,15.815999984741211 0.0010000000474974513,15.815999984741211 C0.3869999945163727,15.815999984741211 0.7730000019073486,15.741999626159668 1.1369999647140503,15.593999862670898 C1.8550000190734863,15.300999641418457 18.725000381469727,8.284000396728516 18.725000381469727,-4.073999881744385 C18.725000381469727,-10.550000190734863 13.385000228881836,-15.815999984741211 6.820000171661377,-15.815999984741211 C4.349999904632568,-15.815999984741211 1.9789999723434448,-15.067000389099121 0.0010000000474974513,-13.70199966430664 C-1.9780000448226929,-15.067000389099121 -4.348999977111816,-15.815999984741211 -6.817999839782715,-15.815999984741211 C-13.383999824523926,-15.815999984741211 -18.725000381469727,-10.550000190734863 -18.725000381469727,-4.073999881744385 C-18.725000381469727,8.284000396728516 -1.8550000190734863,15.300999641418457 -1.1369999647140503,15.593999862670898z"></path></g></g></g></svg></div></div><span class="falta"><span class="day">El evento fue hace ${diasPasados} días</span></span>`;
+      relojElement.innerHTML = `<div class="d-flex justify-content-center align-items-center"><div class="corazon-falta hoy"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 32" width="38" height="32" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px);"><defs><clipPath id="__lottie_element_36"><rect width="38" height="32" x="0" y="0"></rect></clipPath></defs><g clip-path="url(#__lottie_element_36)"><g transform="matrix(0.7499992251396179,0,0,0.7499992251396179,4.768014907836914,3.9505128860473633)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,18.97599983215332,16.06599998474121)"><path fill="rgb(180,143,115)" fill-opacity="1" d=" M-1.1369999647140503,15.593999862670898 C-0.7720000147819519,15.741999626159668 -0.38600000739097595,15.815999984741211 0.0010000000474974513,15.815999984741211 C0.3869999945163727,15.815999984741211 0.7730000019073486,15.741999626159668 1.1369999647140503,15.593999862670898 C1.8550000190734863,15.300999641418457 18.725000381469727,8.284000396728516 18.725000381469727,-4.073999881744385 C18.725000381469727,-10.550000190734863 13.385000228881836,-15.815999984741211 6.820000171661377,-15.815999984741211 C4.349999904632568,-15.815999984741211 1.9789999723434448,-15.067000389099121 0.0010000000474974513,-13.70199966430664 C-1.9780000448226929,-15.067000389099121 -4.348999977111816,-15.815999984741211 -6.817999839782715,-15.815999984741211 C-13.383999824523926,-15.815999984741211 -18.725000381469727,-10.550000190734863 -18.725000381469727,-4.073999881744385 C-18.725000381469727,8.284000396728516 -1.8550000190734863,15.300999641418457 -1.1369999647140503,15.593999862670898z"></path></g></g></g></svg></div></div><span class="falta"><span class="day">El evento fue hace ${diasPasados} días</span></span>`;
       }
       return;
     }
@@ -286,7 +286,126 @@ document.addEventListener('DOMContentLoaded', function() {
           break;
       }
     });
+    // Inicializar la nueva galería
+  inicializarGaleria();
   });
+
+  // 11. Galería de fotos con modal
+function inicializarGaleria() {
+  const galeriaItems = document.querySelectorAll('.galeria-item');
+  const modal = document.getElementById('modalGaleria');
+  const modalImg = document.getElementById('imagen-modal');
+  const tituloImg = document.getElementById('titulo-imagen');
+  const cerrarModal = document.querySelector('.cerrar-modal');
+  const btnAnterior = document.getElementById('anterior');
+  const btnSiguiente = document.getElementById('siguiente');
+  
+  let imagenes = [];
+  let indiceActual = 0;
+
+  // Recopilar todas las imágenes de la galería
+  galeriaItems.forEach((item, index) => {
+    const img = item.querySelector('img');
+    const src = img.getAttribute('data-full') || img.src;
+    const alt = img.alt;
+    
+    imagenes.push({ src, alt });
+    
+    // Agregar evento de clic a cada imagen
+    item.addEventListener('click', () => {
+      abrirModal(index);
+    });
+  });
+
+  // Función para abrir el modal
+  function abrirModal(index) {
+    indiceActual = index;
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Prevenir scroll del body
+    actualizarImagen();
+    
+    // Agregar evento para cerrar con la tecla ESC
+    document.addEventListener('keydown', manejarTeclado);
+  }
+
+  // Función para cerrar el modal
+  function cerrarModalFunc() {
+    modal.style.display = 'none';
+    document.body.style.overflow = ''; // Permitir scroll nuevamente
+    document.removeEventListener('keydown', manejarTeclado);
+  }
+
+  // Función para actualizar la imagen en el modal
+  function actualizarImagen() {
+    const imagen = imagenes[indiceActual];
+    modalImg.src = imagen.src;
+    modalImg.alt = imagen.alt;
+    tituloImg.textContent = imagen.alt;
+  }
+
+  // Función para navegar a la imagen anterior
+  function imagenAnterior() {
+    indiceActual = (indiceActual - 1 + imagenes.length) % imagenes.length;
+    actualizarImagen();
+  }
+
+  // Función para navegar a la imagen siguiente
+  function imagenSiguiente() {
+    indiceActual = (indiceActual + 1) % imagenes.length;
+    actualizarImagen();
+  }
+
+  // Función para manejar eventos de teclado
+  function manejarTeclado(e) {
+    if (e.key === 'Escape') {
+      cerrarModalFunc();
+    } else if (e.key === 'ArrowLeft') {
+      imagenAnterior();
+    } else if (e.key === 'ArrowRight') {
+      imagenSiguiente();
+    }
+  }
+
+  // Event listeners
+  cerrarModal.addEventListener('click', cerrarModalFunc);
+  btnAnterior.addEventListener('click', imagenAnterior);
+  btnSiguiente.addEventListener('click', imagenSiguiente);
+  
+  // Cerrar modal al hacer clic fuera de la imagen
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      cerrarModalFunc();
+    }
+  });
+
+  // Soporte para gestos táctiles en dispositivos móviles
+  let touchStartX = 0;
+  let touchEndX = 0;
+  
+  modal.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, false);
+  
+  modal.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    manejarDeslizamiento();
+  }, false);
+  
+  function manejarDeslizamiento() {
+    const diferencia = touchStartX - touchEndX;
+    
+    // Si el deslizamiento es significativo
+    if (Math.abs(diferencia) > 50) {
+      if (diferencia > 0) {
+        // Deslizamiento a la izquierda - siguiente imagen
+        imagenSiguiente();
+      } else {
+        // Deslizamiento a la derecha - imagen anterior
+        imagenAnterior();
+      }
+    }
+  }
+}
 
   setupParallax();
   window.addEventListener('resize', setupParallax);
