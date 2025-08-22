@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const ahora = new Date();
     const diferencia = fechaEvento - ahora;
 
-    const relojElement = document.getElementById('box-circulo');
+    const relojElement = document.getElementById('boxCirculo');
 
     if (diferencia <= 0) {
       const diasPasados = Math.floor(Math.abs(diferencia) / (1000 * 60 * 60 * 24));
